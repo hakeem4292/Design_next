@@ -106,7 +106,7 @@ const GridMotion = ({ items = [], gradientColor = 'black' }: GridMotionProps) =>
         <div className="noscroll" ref={gridRef}>
             <section className="intro" style={{ background: `radial-gradient(circle, ${gradientColor} 0%, transparent 100%)` }}>
                 <div className="gridMotion-container">
-                    {[...Array(isMobile ? 2 : 4)].map((_, rowIndex) => (
+                    {[...Array(4)].map((_, rowIndex) => (
                         <div key={rowIndex} className="row" ref={el => { rowRefs.current[rowIndex] = el }}>
                             {[...Array(isMobile ? 5 : 7)].map((_, itemIndex) => {
                                 const itemsPerRow = isMobile ? 5 : 7;

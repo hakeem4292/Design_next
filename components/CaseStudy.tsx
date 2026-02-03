@@ -25,8 +25,8 @@ export default function CaseStudy() {
     const scrollWidth = scrollContainerRef.current.scrollWidth;
     const windowWidth = window.innerWidth;
     const isMobile = windowWidth < 768;
-    // On mobile, we make the scroll distance longer for a smoother sweep
-    const scrollDistance = (scrollWidth - windowWidth) * (isMobile ? 0.7 : 1);
+    // On mobile, we make the scroll distance much longer for controlled sweep
+    const scrollDistance = (scrollWidth - windowWidth) * (isMobile ? 1.5 : 1);
 
     const mainTween = gsap.to(scrollContainerRef.current, {
       x: -(scrollWidth - windowWidth),
@@ -34,9 +34,9 @@ export default function CaseStudy() {
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
-        end: () => `+=${isMobile ? windowWidth * 0.8 : scrollDistance}`, // Increased for mobile sweep
-        scrub: 1,
-        pin: !isMobile, // Disable pin on mobile
+        end: () => `+=${isMobile ? scrollDistance * 1.5 : scrollDistance}`,
+        scrub: isMobile ? 1.5 : 1, // Slower scrub on mobile
+        pin: true, // Enable pin on mobile to keep page fixed
         anticipatePin: 1,
         invalidateOnRefresh: true,
       }
