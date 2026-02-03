@@ -1,0 +1,120 @@
+/* [project]/components/GridMotion.css [app-client] (css) */
+.noscroll {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.intro {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .intro {
+    height: 100vh;
+  }
+}
+
+.intro:after {
+  content: "";
+  pointer-events: none;
+  z-index: 4;
+  background-size: 250px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.gridMotion-container {
+  transform-origin: center;
+  z-index: 2;
+  flex: none;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: 100%;
+  gap: .5rem;
+  width: 250vw;
+  height: 60vh;
+  display: grid;
+  position: relative;
+  transform: rotate(-15deg);
+}
+
+@media (min-width: 768px) {
+  .gridMotion-container {
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1rem;
+    width: 150vw;
+    height: 150vh;
+  }
+}
+
+.row {
+  will-change: transform, filter;
+  grid-template-columns: repeat(5, 1fr);
+  gap: .5rem;
+  display: grid;
+}
+
+@media (min-width: 768px) {
+  .row {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1rem;
+  }
+}
+
+.row__item {
+  position: relative;
+}
+
+.row__item-inner {
+  color: #fff;
+  background-color: #111;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 1.5rem;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.row__item-img {
+  background-position: 50%;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.row__item-content {
+  text-align: center;
+  z-index: 1;
+  padding: 1rem;
+}
+
+.fullview {
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.fullview .row__item-inner {
+  border-radius: 0;
+}
+
+/*# sourceMappingURL=components_GridMotion_3087d515.css.map*/
