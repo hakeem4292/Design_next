@@ -21,7 +21,7 @@ export default function LandingPage() {
     <main className="min-h-screen bg-[#060606] overflow-x-hidden">
 
       {/* 3D and Hero */}
-      <section className="relative flex flex-col items-center pt-0">
+      <section id="home" className="relative flex flex-col items-center pt-0">
         <div className="w-full h-[300px] sm:h-[400px] md:h-[450px]">
           <CubeScene />
         </div>
@@ -31,14 +31,20 @@ export default function LandingPage() {
       </section>
 
       {/* The New Motion Grid Section */}
-      <section className="w-full py-6 md:py-10">
+      <section id="work" className="w-full py-6 md:py-10">
         <GridMotion items={filledImages} gradientColor="#060606" />
       </section>
 
       {/* Case Study & Footer */}
-      <section className="relative z-20 bg-[#060606]">
+      <section id="case-studies" className="relative z-20 bg-[#060606]">
         <CaseStudy />
+      </section>
+
+      <section id="services" className="relative z-20 bg-[#060606]">
         <Services />
+      </section>
+
+      <section id="contact" className="relative z-20 bg-[#060606]">
         <Footer />
       </section>
 

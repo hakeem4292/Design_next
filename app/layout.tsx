@@ -4,6 +4,7 @@ import "./globals.css";
 // Make sure this path matches where you saved the file
 import SplashCursor from "@/components/SplashCursor";
 import AICore from "@/components/AICore";
+import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({
         */}
         <SplashCursor />
         <AICore />
+        <Navbar />
 
         {children}
       </body>
