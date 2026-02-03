@@ -7,12 +7,12 @@ import CaseStudyCard from './CaseStudyCard';
 gsap.registerPlugin(ScrollTrigger);
 
 const CASE_STUDIES = [
-  { id: "01", title: "Digital Evolution", category: "Web Design & UI/UX" },
-  { id: "02", title: "Kinetic Identity", category: "Motion & Branding" },
-  { id: "03", title: "Neural Interface", category: "Artificial Intelligence" },
-  { id: "04", title: "Liquid Motion", category: "Abstract Animation" },
-  { id: "05", title: "Minimalist Ethos", category: "Product Design" },
-  { id: "06", title: "Cyber Protocol", category: "Security Design" },
+  { id: "01", title: "Digital Evolution", category: "Web Design & UI/UX", image: "/abstract_light_1_1770101236435.png" },
+  { id: "02", title: "Kinetic Identity", category: "Motion & Branding", image: "/abstract_light_2_v3_1770101270896.png" },
+  { id: "03", title: "Neural Interface", category: "Artificial Intelligence", image: "/abstract_light_3_v2_1770101294369.png" },
+  { id: "04", title: "Liquid Motion", category: "Abstract Animation", image: "/abstract_light_4_v2_1770101317404.png" },
+  { id: "05", title: "Minimalist Ethos", category: "Product Design", image: "/abstract_light_5_v2_1770101352382.png" },
+  { id: "06", title: "Cyber Protocol", category: "Security Design", image: "/abstract_light_6_v2_1770101371369.png" },
 ];
 
 export default function CaseStudy() {
@@ -71,8 +71,19 @@ export default function CaseStudy() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-[#060606] overflow-hidden">
-      <div className="h-auto py-12 md:py-0 md:h-screen flex flex-col justify-start md:justify-center">
+    <section ref={sectionRef} className="bg-[#060606] overflow-hidden relative">
+      {/* Environmental Background Image */}
+      <div
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage: `url('/abstract_light_1_1770101236435.png')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      />
+
+      <div className="h-auto py-12 md:py-0 md:h-screen flex flex-col justify-start md:justify-center relative z-10">
         <div className="px-6 md:px-20 mb-10 md:mb-12">
           <h2 className="text-zinc-700 text-[10px] md:text-xs tracking-[0.5em] uppercase mb-2 md:mb-4">Selected Works</h2>
           <div className="h-[1px] w-12 md:w-24 bg-emerald-500/50"></div>
@@ -88,6 +99,7 @@ export default function CaseStudy() {
               id={study.id}
               title={study.title}
               category={study.category}
+              image={study.image}
             />
           ))}
         </div>
