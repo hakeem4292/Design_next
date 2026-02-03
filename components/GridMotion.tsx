@@ -58,7 +58,26 @@ const GridMotion = ({ items = [], gradientColor = 'black' }: GridMotionProps) =>
         window.addEventListener('mousemove', handleMouseMove);
         window.addEventListener('touchmove', handleTouchMove);
 
-        // 2. Scroll Scaling Logic (Smoothly make images bigger)
+        // 2. Scroll-triggered Parallax for Rows
+        rowRefs.current.forEach((row, index) => {
+            if (row) {
+                const direction = index % 2 === 0 ? 1 : -1;
+                gsap.fromTo(row,
+                    { x: direction * (isMobile ? 100 : 200) },
+                    {
+                        x: -direction * (isMobile ? 100 : 200),
+                        scrollTrigger: {
+                            trigger: gridRef.current,
+                            start: "top bottom",
+                            end: "bottom top",
+                            scrub: true,
+                        }
+                    }
+                );
+            }
+        });
+
+        // 3. Scroll Scaling Logic (Smoothly make images bigger)
         const itemsNodes = gsap.utils.toArray(".row__item-inner");
         itemsNodes.forEach((item: any) => {
             gsap.fromTo(item,

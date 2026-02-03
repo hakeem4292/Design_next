@@ -4,7 +4,7 @@ export default function HeroContent() {
             <span className="text-emerald-500 uppercase tracking-[0.3em] md:tracking-[0.4em] text-[8px] md:text-[10px] font-bold mb-4 md:mb-6">
                 Innovative Design
             </span>
-            <h1 className="text-5xl sm:text-6xl md:text-[9rem] font-bold text-white tracking-tighter leading-tight md:leading-none mb-6 md:mb-10 flex flex-wrap justify-center gap-x-4 md:gap-x-6">
+            <h1 className="text-4xl sm:text-6xl md:text-[9rem] font-bold text-white tracking-tighter leading-tight md:leading-none mb-6 md:mb-10 flex flex-wrap justify-center gap-x-3 md:gap-x-6">
                 <span>Visual</span>
                 <span className="text-emerald-500 italic font-black">Impact</span>
             </h1>

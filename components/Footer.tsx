@@ -10,7 +10,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full bg-[#060606] border-t border-white/5 pt-16 md:pt-32 pb-8 md:pb-12 px-6 md:px-20 relative overflow-hidden">
+    <footer className="w-full bg-[#060606] border-t border-white/5 pt-4 md:pt-32 pb-8 md:pb-12 px-6 md:px-20 relative overflow-hidden">
       {/* Background Display Text */}
       <div className="absolute top-10 left-0 w-full flex justify-center opacity-[0.02] pointer-events-none select-none">
         <h2 className="text-[35vw] md:text-[25vw] font-black uppercase tracking-tighter leading-none">

@@ -3,6 +3,7 @@ import CubeScene from "@/components/CubeScene";
 import HeroContent from "@/components/HeroContent";
 import GridMotion from "@/components/GridMotion";
 import CaseStudy from "@/components/CaseStudy";
+import Services from "@/components/Services";
 import Footer from "@/components/Footer";
 
 export default function LandingPage() {
@@ -37,6 +38,7 @@ export default function LandingPage() {
       {/* Case Study & Footer */}
       <section className="relative z-20 bg-[#060606]">
         <CaseStudy />
+        <Services />
         <Footer />
       </section>
 
