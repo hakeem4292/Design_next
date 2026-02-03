@@ -98,7 +98,7 @@ const HUD = () => {
 
 export default function AICore() {
     return (
-        <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 w-24 h-24 md:w-48 md:h-48 z-[100] group cursor-pointer">
+        <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 w-24 h-24 md:w-48 md:h-48 z-40 group cursor-pointer">{/* Z-index lowered to 40 so navbar (z-50) appears on top */}
             {/* Background Glow */}
             <div className="absolute inset-0 bg-emerald-500/5 rounded-full blur-2xl md:blur-3xl group-hover:bg-emerald-500/10 transition-colors duration-700"></div>
 

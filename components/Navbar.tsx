@@ -54,8 +54,15 @@ export default function Navbar() {
     const scrollToSection = (href: string) => {
         const sectionId = href.replace("#", "");
         const element = document.getElementById(sectionId);
-        if (element) {
-            const navbarHeight = 80; // Height of navbar
+
+        if (!element) return;
+
+        // Close mobile menu
+        setIsMobileMenuOpen(false);
+
+        // Small delay for menu close animation  
+        setTimeout(() => {
+            const navbarHeight = window.innerWidth < 768 ? 70 : 85;
             const elementPosition = element.getBoundingClientRect().top + window.scrollY;
             const offsetPosition = elementPosition - navbarHeight;
 
@@ -63,8 +70,7 @@ export default function Navbar() {
                 top: offsetPosition,
                 behavior: "smooth"
             });
-            setIsMobileMenuOpen(false);
-        }
+        }, 100);
     };
 
     return (
@@ -139,9 +145,10 @@ export default function Navbar() {
                         {/* Mobile Menu Button */}
                         <div className="md:hidden">
                             <motion.button
+                                type="button"
                                 whileTap={{ scale: 0.9 }}
                                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                                className="p-2 text-white/80 hover:text-white focus:outline-none"
+                                className="p-2 text-white/80 hover:text-white focus:outline-none relative z-50"
                                 aria-label="Toggle menu"
                             >
                                 <svg
@@ -180,11 +187,12 @@ export default function Navbar() {
                                     return (
                                         <motion.button
                                             key={item.name}
+                                            type="button"
                                             initial={{ opacity: 0, x: -20 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ delay: index * 0.08, duration: 0.3 }}
                                             onClick={() => scrollToSection(item.href)}
-                                            className={`block w-full text-left px-5 py-4 rounded-xl text-lg font-semibold transition-all duration-300 ${isActive
+                                            className={`block w-full text-left px-5 py-4 rounded-xl text-lg font-semibold transition-all duration-300 pointer-events-auto cursor-pointer ${isActive
                                                 ? "bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-blue-500/20 text-white border border-purple-500/30 shadow-lg shadow-purple-500/10"
                                                 : "text-white/70 hover:text-white hover:bg-white/5 active:bg-white/10"
                                                 }`}
@@ -194,11 +202,12 @@ export default function Navbar() {
                                     );
                                 })}
                                 <motion.button
+                                    type="button"
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: navItems.length * 0.08, duration: 0.3 }}
                                     onClick={() => scrollToSection("#contact")}
-                                    className="w-full mt-6 px-6 py-4 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-full text-white text-lg font-bold shadow-xl shadow-purple-500/30 active:scale-95 transition-transform"
+                                    className="w-full mt-6 px-6 py-4 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-full text-white text-lg font-bold shadow-xl shadow-purple-500/30 active:scale-95 transition-transform pointer-events-auto cursor-pointer"
                                 >
                                     Get in Touch
                                 </motion.button>
