@@ -25,8 +25,8 @@ export default function CaseStudy() {
     const scrollWidth = scrollContainerRef.current.scrollWidth;
     const windowWidth = window.innerWidth;
     const isMobile = windowWidth < 768;
-    // On mobile, we make the scroll feel faster by reducing the distance required to trigger the full sweep
-    const scrollDistance = (scrollWidth - windowWidth) * (isMobile ? 0.35 : 1);
+    // On mobile, we make the scroll distance longer for a smoother sweep
+    const scrollDistance = (scrollWidth - windowWidth) * (isMobile ? 0.7 : 1);
 
     const mainTween = gsap.to(scrollContainerRef.current, {
       x: -(scrollWidth - windowWidth),
@@ -34,7 +34,7 @@ export default function CaseStudy() {
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
-        end: () => `+=${isMobile ? windowWidth * 0.5 : scrollDistance}`, // Slight scroll for mobile sweep
+        end: () => `+=${isMobile ? windowWidth * 0.8 : scrollDistance}`, // Increased for mobile sweep
         scrub: 1,
         pin: !isMobile, // Disable pin on mobile
         anticipatePin: 1,
@@ -83,7 +83,7 @@ export default function CaseStudy() {
         }}
       />
 
-      <div className="h-auto py-12 md:py-0 md:h-screen flex flex-col justify-start md:justify-center relative z-10">
+      <div className="h-auto py-4 md:py-0 md:h-screen flex flex-col justify-start md:justify-center relative z-10">
         <div className="px-6 md:px-20 mb-10 md:mb-12">
           <h2 className="text-zinc-700 text-[10px] md:text-xs tracking-[0.5em] uppercase mb-2 md:mb-4">Selected Works</h2>
           <div className="h-[1px] w-12 md:w-24 bg-emerald-500/50"></div>
@@ -91,7 +91,7 @@ export default function CaseStudy() {
 
         <div
           ref={scrollContainerRef}
-          className="flex flex-nowrap pl-6 md:pl-20 pr-[15vw] md:pr-[20vw]"
+          className="flex flex-nowrap pl-6 md:pl-20 pr-[40vw] md:pr-[20vw] gap-x-12"
         >
           {CASE_STUDIES.map((study) => (
             <CaseStudyCard

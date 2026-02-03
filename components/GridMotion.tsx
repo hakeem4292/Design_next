@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './GridMotion.css';
@@ -77,23 +77,22 @@ const GridMotion = ({ items = [], gradientColor = 'black' }: GridMotionProps) =>
             }
         });
 
-        // 3. Scroll Scaling Logic (Smoothly make images bigger)
-        const itemsNodes = gsap.utils.toArray(".row__item-inner");
-        itemsNodes.forEach((item: any) => {
-            gsap.fromTo(item,
-                { scale: 0.7, opacity: 0.2 },
-                {
-                    scale: 1,
-                    opacity: 1,
-                    scrollTrigger: {
-                        trigger: item,
-                        start: "top bottom",
-                        end: "center center",
-                        scrub: 1,
-                    }
+        // 3. Section-wide Scale (Subtle Zoom-in effect)
+        gsap.fromTo(".gridMotion-container",
+            { scale: 1 },
+            {
+                scale: isMobile ? 1.25 : 1.1,
+                opacity: 1,
+                scrollTrigger: {
+                    trigger: gridRef.current,
+                    start: "top top",
+                    end: `+=${isMobile ? 1800 : 1200}`,
+                    scrub: 1.5,
+                    pin: true,
+                    anticipatePin: 1,
                 }
-            );
-        });
+            }
+        );
 
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);

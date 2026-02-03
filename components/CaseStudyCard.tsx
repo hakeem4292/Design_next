@@ -7,7 +7,7 @@ export interface CaseStudyProps {
 
 export default function CaseStudyCard({ id, title, category, image }: CaseStudyProps) {
     return (
-        <div className="flex-shrink-0 w-[92vw] sm:w-[500px] md:w-[600px] p-2 md:p-4 group case-study-card relative overflow-hidden rounded-[1.5rem] md:rounded-[3rem]">
+        <div className="flex-shrink-0 w-[75vw] h-[65vh] md:h-auto sm:w-[500px] md:w-[600px] group case-study-card relative overflow-hidden rounded-[1.5rem] md:rounded-[3rem] shadow-2xl">
             {/* Background Image Layer */}
             {image && (
                 <div
