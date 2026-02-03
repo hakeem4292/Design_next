@@ -567,7 +567,8 @@ function SplashCursor({
             gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array([0, 1, 2, 0, 2, 3]), gl.STATIC_DRAW);
             gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
             gl.enableVertexAttribArray(0);
-            return (target, clear = false) => {
+  return (target: unknown, clear: boolean = false) => {
+
                 if (target == null) {
                     gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
                     gl.bindFramebuffer(gl.FRAMEBUFFER, null);
